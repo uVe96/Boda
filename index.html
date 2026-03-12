@@ -7,7 +7,7 @@
     
     <meta property="og:title" content="¡Boda y Bautizo! | Marcos y Sara">
     <meta property="og:description" content="Nos hace muchísima ilusión celebrar juntos nuestra boda y el bautizo de Marcos. ¡Entra para ver todos los detalles y confirmar tu asistencia!">
-    <meta property="og:image" content="https://uve96.github.io/Boda/portada.png">
+    <meta property="og:image" content="https://uve96.github.io/Boda/portada.jpg">
     <meta property="og:url" content="https://uve96.github.io/Boda/">
     <meta property="og:type" content="website">
     
@@ -111,17 +111,15 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
 
-        /* --------------------------------------------------- */
-        /* NUEVAS CLASES PARA EL EFECTO SCROLL                 */
-        /* --------------------------------------------------- */
+        /* CLASES PARA EL EFECTO SCROLL */
         .animar-scroll {
-            opacity: 0; /* Empieza invisible */
-            transform: translateY(40px); /* Empieza un poco más abajo */
-            transition: all 0.8s ease-out; /* La suavidad y duración del efecto */
+            opacity: 0; 
+            transform: translateY(40px); 
+            transition: all 0.8s ease-out; 
         }
         .animar-scroll.visible {
-            opacity: 1; /* Se vuelve totalmente visible */
-            transform: translateY(0); /* Sube a su posición original */
+            opacity: 1; 
+            transform: translateY(0); 
         }
 
         /* ESTILOS DE LA CUENTA ATRÁS */
@@ -156,30 +154,78 @@
             display: block;
         }
 
-        /* ESTILOS DE INFORMACIÓN EXTRA */
-        .info-extra-caja {
-            margin: 40px 10px 20px 10px;
+        /* ESTILOS DEL CARRUSEL DE FOTOS */
+        .carrusel-contenedor {
+            position: relative;
+            max-width: 100%;
+            margin: 20px auto 40px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(139, 115, 85, 0.15);
+            border: 4px solid #f7f3eb;
         }
-        .info-item {
-            margin-bottom: 30px;
+        .carrusel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
         }
-        .icono-extra {
-            font-size: 2.2em;
-            margin-bottom: 5px;
+        .carrusel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .carrusel-slide img {
+            width: 100%;
+            height: 350px; /* Altura fija para que todas las fotos cuadren */
+            object-fit: cover;
             display: block;
         }
-        .titulo-extra {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5em;
+        .carrusel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
             color: #8b7355;
-            margin-bottom: 8px;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2em;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
         }
-        .texto-extra {
-            font-size: 1.05em;
-            color: #5a5a5a;
-            margin: 0;
-            padding: 0 15px;
+        .carrusel-btn:hover { background-color: white; }
+        .carrusel-btn.prev { left: 10px; }
+        .carrusel-btn.next { right: 10px; }
+        
+        .carrusel-puntos {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
         }
+        .punto {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        .punto.activo { background-color: white; }
+
+        /* ESTILOS DE INFORMACIÓN EXTRA */
+        .info-extra-caja { margin: 40px 10px 20px 10px; }
+        .info-item { margin-bottom: 30px; }
+        .icono-extra { font-size: 2.2em; margin-bottom: 5px; display: block; }
+        .titulo-extra { font-family: 'Playfair Display', serif; font-size: 1.5em; color: #8b7355; margin-bottom: 8px; }
+        .texto-extra { font-size: 1.05em; color: #5a5a5a; margin: 0; padding: 0 15px; }
 
         /* ESTILOS SECCIÓN DE REGALOS */
         .seccion-regalos {
@@ -191,11 +237,7 @@
             max-width: 90%;
             box-shadow: 0 4px 10px rgba(139, 115, 85, 0.05);
         }
-        .icono-regalo {
-            font-size: 2.2em;
-            margin-bottom: 15px;
-            display: block;
-        }
+        .icono-regalo { font-size: 2.2em; margin-bottom: 15px; display: block; }
         .iban-caja {
             font-family: 'Courier New', Courier, monospace;
             font-size: 1.1em;
@@ -219,11 +261,9 @@
             transition: all 0.3s;
             font-family: 'Georgia', serif;
         }
-        .boton-copiar:hover {
-            background-color: #8b7355;
-            color: white;
-        }
+        .boton-copiar:hover { background-color: #8b7355; color: white; }
 
+        /* BOTÓN FLOTANTE */
         .boton-confirmar {
             position: fixed; 
             bottom: 25px; 
@@ -240,7 +280,6 @@
             transition: all 0.3s;
             white-space: nowrap; 
         }
-        
         .boton-confirmar:hover {
             background-color: #6b573f;
             transform: translateX(-50%) scale(1.05); 
@@ -298,6 +337,24 @@
             <div class="hora">a las 14:00 hrs</div>
             <p><strong>Lugar:</strong> Finca El Cigarral, Cembranos</p>
             <iframe src="https://maps.google.com/maps?q=Finca%20El%20Cigarral,%20Cembranos&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="animar-scroll">
+            <div class="subtitulo-evento">Nuestros Momentos</div>
+            <div class="carrusel-contenedor">
+                <div class="carrusel-slides" id="carrusel">
+                    <div class="carrusel-slide"><img src="galeria1.jpg" alt="Momento 1"></div>
+                    <div class="carrusel-slide"><img src="galeria2.jpg" alt="Momento 2"></div>
+                    <div class="carrusel-slide"><img src="galeria3.jpg" alt="Momento 3"></div>
+                </div>
+                <button class="carrusel-btn prev" onclick="moverCarrusel(-1)">&#10094;</button>
+                <button class="carrusel-btn next" onclick="moverCarrusel(1)">&#10095;</button>
+                <div class="carrusel-puntos">
+                    <span class="punto activo" onclick="irSlide(0)"></span>
+                    <span class="punto" onclick="irSlide(1)"></span>
+                    <span class="punto" onclick="irSlide(2)"></span>
+                </div>
+            </div>
         </div>
 
         <div class="info-extra-caja animar-scroll">
@@ -376,23 +433,45 @@
 
         // 3. EFECTO DE APARICIÓN AL HACER SCROLL
         document.addEventListener("DOMContentLoaded", function() {
-            // Configuramos el 'vigilante'
             const observador = new IntersectionObserver((entradas) => {
                 entradas.forEach((entrada) => {
-                    // Si el elemento entra en la pantalla...
                     if (entrada.isIntersecting) {
-                        entrada.target.classList.add('visible'); // Le añade la clase para que aparezca
-                        observador.unobserve(entrada.target); // Deja de vigilarlo para que no se anime dos veces
+                        entrada.target.classList.add('visible'); 
+                        observador.unobserve(entrada.target); 
                     }
                 });
             }, {
-                threshold: 0.1 // Se dispara cuando el 10% del elemento asoma por abajo
+                threshold: 0.1 
             });
 
-            // Le decimos al vigilante qué elementos tiene que observar
             const elementosOcultos = document.querySelectorAll('.animar-scroll');
             elementosOcultos.forEach((el) => observador.observe(el));
         });
+
+        // 4. LÓGICA DEL CARRUSEL DE FOTOS
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carrusel-slide');
+        const puntos = document.querySelectorAll('.punto');
+        const carrusel = document.getElementById('carrusel');
+        const totalSlides = slides.length;
+
+        function actualizarCarrusel() {
+            carrusel.style.transform = `translateX(-${slideIndex * 100}%)`;
+            puntos.forEach(p => p.classList.remove('activo'));
+            puntos[slideIndex].classList.add('activo');
+        }
+
+        function moverCarrusel(step) {
+            slideIndex += step;
+            if (slideIndex >= totalSlides) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = totalSlides - 1;
+            actualizarCarrusel();
+        }
+
+        function irSlide(n) {
+            slideIndex = n;
+            actualizarCarrusel();
+        }
     </script>
 </body>
 </html>
