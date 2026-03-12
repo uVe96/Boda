@@ -22,14 +22,14 @@
             background-color: #f7f3eb; 
             color: #4a4a4a; 
             text-align: center;
-            padding: 10px 15px 100px 15px; /* Le quitamos espacio al techo de la pantalla */
+            padding: 0px 15px 100px 15px; /* El primer 0px es el techo */
         }
         
         .invitacion {
             border: 1px solid #e6dace; 
-            padding: 20px; /* Antes era 40px por arriba, le quitamos la mitad */
+            padding: 10px 20px 20px 20px; /* Arriba solo 10px, los lados y abajo 20px */
             max-width: 600px;
-            margin: 10px auto 20px auto; /* Lo pegamos un poco más al techo */
+            margin: 0px auto 20px auto; /* El 0px pega la tarjeta al techo */
             background-color: white;
             border-radius: 15px;
             box-shadow: 0 15px 35px rgba(139, 115, 85, 0.08); 
@@ -287,7 +287,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
-            margin: 5px 0 20px 0; /* Reducimos mucho el salto entre el menú y "Nuestra Boda" */
+            margin: 0px 0 15px 0; /* Quitamos el margen superior (0px) y reducimos el inferior a 15px */
             padding: 0 10px;
         }
         
