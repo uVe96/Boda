@@ -93,6 +93,38 @@
             line-height: 1.5;
         }
 
+        /* ESTILOS DE LA CUENTA ATRÁS */
+        .contador-contenedor {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0 35px 0;
+        }
+        .contador-item {
+            background-color: #fcfbf9;
+            border: 1px solid #e6dace;
+            border-radius: 10px;
+            padding: 12px 10px;
+            min-width: 55px;
+            box-shadow: 0 4px 8px rgba(139, 115, 85, 0.05);
+        }
+        .contador-numero {
+            display: block;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #8b7355;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+        .contador-label {
+            font-size: 0.75em;
+            color: #a38d72;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+            display: block;
+        }
+
         .hora {
             font-size: 1.2em;
             color: #a38d72;
@@ -158,6 +190,25 @@
         <div class="fecha">
             Sábado, 5 de Septiembre de 2026
         </div>  
+
+        <div class="contador-contenedor">
+            <div class="contador-item">
+                <span class="contador-numero" id="dias">00</span>
+                <span class="contador-label">Días</span>
+            </div>
+            <div class="contador-item">
+                <span class="contador-numero" id="horas">00</span>
+                <span class="contador-label">Hrs</span>
+            </div>
+            <div class="contador-item">
+                <span class="contador-numero" id="minutos">00</span>
+                <span class="contador-label">Min</span>
+            </div>
+            <div class="contador-item">
+                <span class="contador-numero" id="segundos">00</span>
+                <span class="contador-label">Seg</span>
+            </div>
+        </div>
         
         <div class="subtitulo-evento">La Ceremonia</div>
         <div class="hora">a las 12:00 hrs</div>
@@ -175,5 +226,37 @@
         
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScKszyyh4QzKtyKjFX-o4V_w5jmp2A9A5qLm-JJ340iLzKYpw/viewform?usp=header" target="_blank" class="boton-confirmar">Confirmar Asistencia</a>    
     </div>
+
+    <script>
+        // Establecemos la fecha de la boda (5 de Septiembre de 2026 a las 12:00:00)
+        const fechaBoda = new Date("Sep 5, 2026 12:00:00").getTime();
+
+        // Actualizamos el contador cada segundo
+        const intervalo = setInterval(function() {
+            const ahora = new Date().getTime();
+            const distancia = fechaBoda - ahora;
+
+            // Cálculos matemáticos para días, horas, minutos y segundos
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            // Mostramos los resultados en la página (añadiendo un cero si es menor de 10)
+            document.getElementById("dias").innerHTML = dias;
+            document.getElementById("horas").innerHTML = horas < 10 ? "0" + horas : horas;
+            document.getElementById("minutos").innerHTML = minutos < 10 ? "0" + minutos : minutos;
+            document.getElementById("segundos").innerHTML = segundos < 10 ? "0" + segundos : segundos;
+
+            // Si la cuenta atrás termina, ponemos todo a cero
+            if (distancia < 0) {
+                clearInterval(intervalo);
+                document.getElementById("dias").innerHTML = "00";
+                document.getElementById("horas").innerHTML = "00";
+                document.getElementById("minutos").innerHTML = "00";
+                document.getElementById("segundos").innerHTML = "00";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
