@@ -11,6 +11,7 @@
             color: #4a4a4a; /* Color del texto */
             text-align: center;
             padding: 20px;
+            padding-bottom: 100px;        
         }
         .invitacion {
             border: 2px solid #d4c5b9;
@@ -37,19 +38,25 @@
             margin: 30px 0; 
         }
         .boton-confirmar {
-            display: inline-block;
-            background-color: #8b7355; /* Color marrón a juego con el título */
+            position: fixed; /* Esto lo deja fijo en la pantalla */
+            bottom: 20px; /* Separación desde abajo */
+            left: 50%; /* Lo centra horizontalmente */
+            transform: translateX(-50%); /* Ajuste perfecto del centro */
+            background-color: #8b7355; 
             color: white;
             padding: 15px 30px;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 30px; /* Bordes muy redondeados tipo píldora */
             font-size: 1.2em;
-            margin-top: 30px;
-            transition: background-color 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Sombra para que destaque sobre el texto */
+            z-index: 1000; /* Asegura que esté por encima de todo lo demás */
+            transition: all 0.3s;
+            white-space: nowrap; /* Evita que el texto se parta en dos líneas */
         }
         .boton-confirmar:hover {
-            background-color: #6b573f; /* Se oscurece un poco al pasar el ratón */
-        }
+            background-color: #6b573f;
+            transform: translateX(-50%) scale(1.05); /* Efecto de que se hace un pelín más grande al tocarlo */
+        }        
         .boton-mapa {
             display: inline-block;
             background-color: transparent; /* Fondo transparente para que sea un botón secundario */
