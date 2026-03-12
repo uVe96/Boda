@@ -15,21 +15,21 @@
         }
         html {
             scroll-behavior: smooth;
-        }        
+        }    
+        
         body {
             font-family: 'Georgia', serif; 
             background-color: #f7f3eb; 
             color: #4a4a4a; 
             text-align: center;
-            padding: 20px;
-            padding-bottom: 100px;        
+            padding: 10px 15px 100px 15px; /* Le quitamos espacio al techo de la pantalla */
         }
         
         .invitacion {
             border: 1px solid #e6dace; 
-            padding: 40px 20px;
+            padding: 20px; /* Antes era 40px por arriba, le quitamos la mitad */
             max-width: 600px;
-            margin: 20px auto;
+            margin: 10px auto 20px auto; /* Lo pegamos un poco más al techo */
             background-color: white;
             border-radius: 15px;
             box-shadow: 0 15px 35px rgba(139, 115, 85, 0.08); 
@@ -287,9 +287,10 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
-            margin: 10px 0 35px 0;
+            margin: 5px 0 20px 0; /* Reducimos mucho el salto entre el menú y "Nuestra Boda" */
             padding: 0 10px;
         }
+        
         .menu-navegacion a {
             text-decoration: none;
             color: #8b7355;
