@@ -6,6 +6,7 @@
     <title>Nuestra Boda y Bautizo</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* Animación de entrada inicial de la tarjeta completa */
@@ -216,14 +217,14 @@
         }
         .punto.activo { background-color: white; }
 
-        /* ESTILOS DE INFORMACIÓN EXTRA */
+        /* ESTILOS DE INFORMACIÓN EXTRA (Actualizados para iconos) */
         .info-extra-caja { margin: 40px 10px 20px 10px; }
         .info-item { margin-bottom: 30px; }
-        .icono-extra { font-size: 2.2em; margin-bottom: 5px; display: block; }
+        .icono-extra { font-size: 2em; margin-bottom: 15px; display: block; color: #a38d72; }
         .titulo-extra { font-family: 'Playfair Display', serif; font-size: 1.5em; color: #8b7355; margin-bottom: 8px; }
         .texto-extra { font-size: 1.05em; color: #5a5a5a; margin: 0; padding: 0 15px; }
 
-        /* ESTILOS SECCIÓN DE REGALOS */
+        /* ESTILOS SECCIÓN DE REGALOS (Actualizados para iconos) */
         .seccion-regalos {
             background-color: #fcfbf9;
             border: 1px solid #e6dace;
@@ -233,7 +234,7 @@
             max-width: 90%;
             box-shadow: 0 4px 10px rgba(139, 115, 85, 0.05);
         }
-        .icono-regalo { font-size: 2.2em; margin-bottom: 15px; display: block; }
+        .icono-regalo { font-size: 2.2em; margin-bottom: 15px; display: block; color: #a38d72; }
         .iban-caja {
             font-family: 'Courier New', Courier, monospace;
             font-size: 1.1em;
@@ -246,7 +247,6 @@
             letter-spacing: 1px;
             word-break: break-all;
         }
-        
         .boton-copiar {
             background-color: transparent;
             color: #8b7355;
@@ -271,13 +271,13 @@
             cursor: pointer;
             transition: all 0.3s;
             font-family: 'Georgia', serif;
-            margin-bottom: 25px; /* Para separarlo de la cuenta atrás */
+            margin-bottom: 25px; 
         }
         .boton-calendario:hover { 
             background-color: #8b7355; 
             color: white; 
         }
-        
+
         /* ESTILOS DEL MENÚ DE NAVEGACIÓN */
         .menu-navegacion {
             display: flex;
@@ -304,13 +304,11 @@
             color: white;
         }    
 
-        /* ---------------------------------------------------- */
-        /* BOTÓN FLOTANTE (Ahora empieza oculto)                */
-        /* ---------------------------------------------------- */
+        /* BOTÓN FLOTANTE OCULTO INICIALMENTE */
         .boton-confirmar {
             position: fixed; 
-            bottom: -100px; /* Empieza escondido por debajo de la pantalla */
-            opacity: 0; /* Totalmente transparente */
+            bottom: -100px; 
+            opacity: 0; 
             left: 50%; 
             transform: translateX(-50%); 
             background-color: #8b7355; 
@@ -321,14 +319,13 @@
             font-size: 1.2em;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
             z-index: 1000; 
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Transición suave con un poco de rebote */
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
             white-space: nowrap; 
         }
         
-        /* Esta clase se añade con JavaScript al hacer scroll */
         .boton-confirmar.mostrar {
-            bottom: 25px; /* Sube a su sitio */
-            opacity: 1; /* Se hace visible */
+            bottom: 25px; 
+            opacity: 1; 
         }
 
         .boton-confirmar:hover {
@@ -362,8 +359,9 @@
         <div class="fecha">
             Sábado, 5 de Septiembre de 2026
         </div>  
-        <button class="boton-calendario" onclick="descargarCalendario()">📅 Añadir a mi Calendario</button>
-        
+
+        <button class="boton-calendario" onclick="descargarCalendario()"><i class="fa-regular fa-calendar-plus"></i> Añadir a mi Calendario</button>
+
         <div class="contador-contenedor animar-scroll">
             <div class="contador-item">
                 <span class="contador-numero" id="dias">00</span>
@@ -418,20 +416,20 @@
         <div class="info-extra-caja animar-scroll" id="detalles">
             
             <div class="info-item">
-                <span class="icono-extra">🚌</span>
+                <i class="fa-solid fa-bus icono-extra"></i>
                 <div class="titulo-extra">Servicio de Autobús</div>
                 <p class="texto-extra">Para vuestra comodidad, pondremos a disposición un autobús que os llevará desde la iglesia hasta la finca, con regreso de madrugada. ¡Para que disfrutéis sin preocupaciones!</p>
             </div>
 
             <div class="info-item">
-                <span class="icono-extra">👔</span>
+                <i class="fa-solid fa-user-tie icono-extra"></i>
                 <div class="titulo-extra">Código de Vestimenta</div>
                 <p class="texto-extra">Formal / Traje oscuro y vestido largo o de cóctel.<br>
                 <i style="color: #a38d72; font-size: 0.9em; margin-top: 5px; display: block;">(Se ruega a las invitadas evitar el color blanco)</i></p>
             </div>
 
             <div class="info-item">
-                <span class="icono-extra">🍽️</span>
+                <i class="fa-solid fa-utensils icono-extra"></i>
                 <div class="titulo-extra">Alergias y Menús Especiales</div>
                 <p class="texto-extra">Rogamos nos indiquéis en el formulario de confirmación si tenéis alguna alergia, intolerancia o si necesitáis un menú especial (vegetariano, vegano, infantil...).</p>
             </div>
@@ -439,10 +437,10 @@
         </div>
 
         <div class="seccion-regalos animar-scroll" id="regalos">
-            <span class="icono-regalo">🎁</span>
+            <i class="fa-solid fa-gift icono-regalo"></i>
             <p style="font-size: 1.05em; padding: 0;">El mejor regalo es poder compartir este día con vosotros. Pero si deseáis tener un detalle con nosotros, podéis hacerlo a través de este número de cuenta:</p>
             <div class="iban-caja" id="numero-iban">ES12 3456 7890 1234 5678 9012</div>
-            <button class="boton-copiar" onclick="copiarIBAN()" id="btn-copiar">📋 Copiar IBAN</button>
+            <button class="boton-copiar" onclick="copiarIBAN()" id="btn-copiar"><i class="fa-regular fa-copy"></i> Copiar IBAN</button>
         </div>
 
         <br>
@@ -485,19 +483,19 @@
             
             navigator.clipboard.writeText(ibanLimpio).then(function() {
                 var btn = document.getElementById("btn-copiar");
-                btn.innerHTML = "✅ ¡Copiado!";
+                btn.innerHTML = "<i class='fa-solid fa-check'></i> ¡Copiado!";
                 btn.style.backgroundColor = "#8b7355";
                 btn.style.color = "white";
                 
                 setTimeout(function() {
-                    btn.innerHTML = "📋 Copiar IBAN";
+                    btn.innerHTML = "<i class='fa-regular fa-copy'></i> Copiar IBAN";
                     btn.style.backgroundColor = "transparent";
                     btn.style.color = "#8b7355";
                 }, 3000);
             });
         }
 
-        // 3. EFECTO DE APARICIÓN AL HACER SCROLL (Elementos normales)
+        // 3. EFECTO DE APARICIÓN AL HACER SCROLL 
         document.addEventListener("DOMContentLoaded", function() {
             const observador = new IntersectionObserver((entradas) => {
                 entradas.forEach((entrada) => {
@@ -539,10 +537,9 @@
             actualizarCarrusel();
         }
 
-        // 5. EFECTO DEL BOTÓN FLOTANTE AL HACER SCROLL (NUEVO)
+        // 5. EFECTO DEL BOTÓN FLOTANTE AL HACER SCROLL 
         window.addEventListener('scroll', function() {
             var botonConfirmar = document.getElementById('btn-confirmar');
-            // Si el usuario baja más de 350 píxeles, aparece el botón
             if (window.scrollY > 350) {
                 botonConfirmar.classList.add('mostrar');
             } else {
@@ -552,7 +549,6 @@
 
         // 6. DESCARGAR EVENTO PARA EL CALENDARIO (.ics)
         function descargarCalendario() {
-            // Creamos los datos del evento (Formato universal)
             const evento = `BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
@@ -564,7 +560,6 @@ DESCRIPTION:¡Nos hace muchísima ilusión celebrar juntos nuestra boda y el bau
 END:VEVENT
 END:VCALENDAR`;
 
-            // Lo convertimos en un archivo descargable
             const blob = new Blob([evento], { type: 'text/calendar;charset=utf-8' });
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
@@ -573,7 +568,7 @@ END:VCALENDAR`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-        }    
+        }
     </script>
 </body>
 </html>
