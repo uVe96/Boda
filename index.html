@@ -394,19 +394,21 @@
         }
         /* ESTILO PARA LA 'y' CALIGRÁFICA */
         .carga-iniciales .y-caligrafica {
-            font-family: 'Great Vibes', cursive; /* La nueva fuente espectacular */
-            font-size: 1.2em; /* Las cursivas son más finas, así que la hacemos un poco más grande */
+            font-family: 'Great Vibes', cursive; 
+            font-size: 1.2em; 
             color: #a38d72; 
             vertical-align: middle; 
-            margin: 0 5px; /* Le damos un pelín de aire a los lados para que no choque con la M y la S */
+            margin: 0 5px; 
+            position: relative; /* Nos permite moverla libremente */
+            top: -12px; /* La subimos un poquito para centrarla con la M y la S */
         }        
         .carga-fecha {
             font-family: 'Georgia', serif;
-            color: #8b7355; /* Mantenemos el color para que contraste bien */
-            font-size: 1em; /* Volvemos a un tamaño más pequeño y delicado */
-            letter-spacing: 3px; /* Un espaciado elegante pero sin exagerar */
+            color: #8b7355; 
+            font-size: 1em; 
+            letter-spacing: 3px; 
             text-transform: uppercase;
-            margin-top: 15px; /* Lo separamos un poquito más de las iniciales para que respiren */
+            margin-top: 30px; /* Le damos más espacio para que no choque con la cola de la "y" */
         }
         @keyframes latido {
             0%, 100% { transform: scale(1); }
