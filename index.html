@@ -352,11 +352,53 @@
         .boton-confirmar:hover {
             background-color: #6b573f;
             transform: translateX(-50%) scale(1.05); 
-        }   
+        }  
+        
+        /* ESTILOS BOTÓN MÚSICA */
+        .boton-musica {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #8b7355;
+            border: 2px solid #e6dace;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.2em;
+            cursor: pointer;
+            z-index: 2000; /* Para que esté por encima de todo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(139, 115, 85, 0.2);
+            transition: all 0.3s ease;
+        }
+        .boton-musica:hover {
+            transform: scale(1.1);
+            background-color: #8b7355;
+            color: white;
+        }
+        /* Animación de tocadiscos girando */
+        .animacion-girar {
+            animation: girar 4s linear infinite;
+            background-color: #8b7355;
+            color: white;
+            border-color: #8b7355;
+        }
+        @keyframes girar {
+            100% { transform: rotate(360deg); }
+        }    
     </style>
 </head>
 <body>
     <div class="invitacion">
+        <audio id="musica-fondo" loop>
+            <source src="musica.mp3" type="audio/mpeg">
+        </audio>
+        <button class="boton-musica" id="btn-musica" onclick="toggleMusica()">
+            <i class="fa-solid fa-music"></i>
+        </button>        
         <div class="menu-navegacion">
             <a href="#ceremonia">Ceremonia</a>
             <a href="#celebracion">Banquete</a>
@@ -596,6 +638,25 @@ END:VCALENDAR`;
             link.click();
             document.body.removeChild(link);
         }
+
+        // 7. LÓGICA DE LA MÚSICA DE FONDO
+        var reproductor = document.getElementById("musica-fondo");
+        var btnMusica = document.getElementById("btn-musica");
+        var iconoMusica = btnMusica.querySelector("i");
+        var estaSonando = false;
+
+        function toggleMusica() {
+            if (estaSonando) {
+                reproductor.pause();
+                iconoMusica.className = "fa-solid fa-music"; // Vuelve a poner la nota musical
+                btnMusica.classList.remove("animacion-girar"); // Para de girar
+            } else {
+                reproductor.play();
+                iconoMusica.className = "fa-solid fa-pause"; // Pone el icono de pausa
+                btnMusica.classList.add("animacion-girar"); // Empieza a girar
+            }
+            estaSonando = !estaSonando;
+        }    
     </script>
 </body>
 </html>
