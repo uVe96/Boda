@@ -389,10 +389,70 @@
         @keyframes girar {
             100% { transform: rotate(360deg); }
         }    
+        
+        /* ESTILOS DE LA PANTALLA DE CARGA (SPLASH SCREEN) */
+        #pantalla-carga {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f7f3eb; /* Mismo color de fondo de la web */
+            z-index: 9999; /* Para que tape todo, incluida la música y el botón */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+        }
+        
+        .carga-contenido {
+            text-align: center;
+            animation: latido 2s infinite ease-in-out;
+        }
+        
+        .carga-iniciales {
+            font-family: 'Playfair Display', serif;
+            color: #8b7355;
+            font-size: 5em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .carga-fecha {
+            font-family: 'Georgia', serif;
+            color: #a38d72;
+            font-size: 1.1em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        @keyframes latido {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Esta clase hará que desaparezca suavemente */
+        .ocultar-carga {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        /* Bloquea el scroll mientras está cargando */
+        body.sin-scroll {
+            overflow: hidden;
+        }    
     </style>
 </head>
-<body>
-    <div class="invitacion">
+<body class="sin-scroll">
+    
+    <div id="pantalla-carga">
+        <div class="carga-contenido">
+            <div class="carga-iniciales">M & S</div>
+            <div class="carga-fecha">5 de Septiembre de 2026</div>
+        </div>
+    </div>
+
+        <div class="invitacion">
         <audio id="musica-fondo" loop>
             <source src="musica.mp3" type="audio/mpeg">
         </audio>
@@ -656,7 +716,19 @@ END:VCALENDAR`;
                 btnMusica.classList.add("animacion-girar"); // Empieza a girar
             }
             estaSonando = !estaSonando;
-        }    
+        }  
+        
+        // 8. TEMPORIZADOR DE LA PANTALLA DE CARGA
+        window.addEventListener('load', function() {
+            // Espera 2 segundos (2000 milisegundos) y desvanece la pantalla
+            setTimeout(function() {
+                var pantallaCarga = document.getElementById('pantalla-carga');
+                pantallaCarga.classList.add('ocultar-carga');
+                
+                // Devuelve el scroll a la página
+                document.body.classList.remove('sin-scroll');
+            }, 2000); 
+        });    
     </script>
 </body>
 </html>
