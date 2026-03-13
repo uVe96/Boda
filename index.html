@@ -403,12 +403,14 @@
             top: -12px; /* La subimos un poquito para centrarla con la M y la S */
         }       
         .carga-fecha {
-            font-family: 'Playfair Display', serif; /* Cambiamos Georgia por Playfair para arreglar los números */
+            font-family: 'Georgia', serif;
             color: #8b7355; 
-            font-size: 0.9em; /* La hacemos un pelín más pequeña porque Playfair es más grande por defecto */
-            letter-spacing: 4px; /* Le damos un punto más de aire */
+            font-size: 1em; 
+            letter-spacing: 3px; 
             text-transform: uppercase;
-            margin-top: 30px; 
+            margin-top: 30px; /* Le damos más espacio para que no choque con la cola de la "y" */
+            font-variant-numeric: lining-nums;
+            font-feature-settings: "lnum";
         }
         @keyframes latido {
             0%, 100% { transform: scale(1); }
