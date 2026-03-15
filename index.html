@@ -570,25 +570,6 @@
             }
         }, 1000);
 
-        // 2. COPIAR IBAN
-        function copiarIBAN() {
-            var ibanTexto = document.getElementById("numero-iban").innerText;
-            var ibanLimpio = ibanTexto.replace(/\s/g, ''); 
-            
-            navigator.clipboard.writeText(ibanLimpio).then(function() {
-                var btn = document.getElementById("btn-copiar");
-                btn.innerHTML = "<i class='fa-solid fa-check'></i> ¡Copiado!";
-                btn.style.backgroundColor = "#8b7355";
-                btn.style.color = "white";
-                
-                setTimeout(function() {
-                    btn.innerHTML = "<i class='fa-regular fa-copy'></i> Copiar IBAN";
-                    btn.style.backgroundColor = "transparent";
-                    btn.style.color = "#8b7355";
-                }, 3000);
-            });
-        }
-
         // 3. EFECTO DE APARICIÓN AL HACER SCROLL 
         document.addEventListener("DOMContentLoaded", function() {
             const observador = new IntersectionObserver((entradas) => {
