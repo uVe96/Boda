@@ -236,7 +236,13 @@
         .info-item:last-child { margin-bottom: 0; }
         .icono-extra { font-size: 2em; margin-bottom: 15px; display: block; color: #a38d72; }
         .titulo-extra { font-family: 'Playfair Display', serif; font-size: 1.5em; color: #8b7355; margin-bottom: 8px; }
-        .texto-extra { font-size: 1.05em; color: #5a5a5a; margin: 0; padding: 0 15px; }
+        .texto-extra { 
+            font-size: 1.15em; /* Le damos un par de puntitos más de tamaño */
+            color: #5a5a5a; 
+            margin: 0; 
+            padding: 0 15px; 
+            line-height: 1.6; /* Le añado esto para que las líneas respiren mejor al ser la letra más grande */
+        }
 
         .boton-copiar {
             background-color: transparent;
